@@ -8,16 +8,13 @@
 import CoreLocation
 import UIKit
 
-// table view
-// custom cell: collection view
-// API / request to get the data
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet var table: UITableView!
     
     var models = [Daily]()
-    
+    var hourlyModels = [Current]()
+
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var currentWeather: Current?
@@ -92,9 +89,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.models.append(contentsOf: entries)
             
             let current = result.current
-            
             self.currentWeather = current
             
+            self.hourlyModels = result.hourly
+            
+            // Update user interface
             DispatchQueue.main.async { [weak self] in
                 self?.table.reloadData()
                 
@@ -135,11 +134,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Table
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models.count
+        // 1 cell that is a collectiontableviewcell
+        if section == 0 {
+            return 1
+        }
+        
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: HourlyTableViewCell.identifier, for: indexPath) as! HourlyTableViewCell
+            cell.configure(with: hourlyModels)
+            cell.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier, for: indexPath) as! WeatherTableViewCell
         cell.configure(with: models[indexPath.row])
         cell.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
@@ -229,12 +244,15 @@ enum Description: String, Codable {
     case moderateRain = "moderate rain"
     case overcastClouds = "overcast clouds"
     case scatteredClouds = "scattered clouds"
+    case smoke = "smoke"
+
 }
 
 enum Main: String, Codable {
     case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
+    case smoke = "Smoke"
 }
 
 // MARK: - Daily

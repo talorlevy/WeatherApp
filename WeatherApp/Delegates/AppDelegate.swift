@@ -5,9 +5,6 @@
 //  Created by Talor Levy on 6/6/23.
 //
 
-// https://www.youtube.com/watch?v=Xc6q_JltHSI&t=1011s
-// 16:33
-
 import UIKit
 
 @main
