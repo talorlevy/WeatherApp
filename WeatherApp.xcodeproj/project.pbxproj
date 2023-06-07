@@ -12,6 +12,8 @@
 		8E86F60B2A31391500297195 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86F60A2A31391500297195 /* NetworkManager.swift */; };
 		8E86F60E2A31398500297195 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86F60D2A31398500297195 /* WeatherResponse.swift */; };
 		8E86F6102A313A1F00297195 /* HomeViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86F60F2A313A1F00297195 /* HomeViewControllerExtension.swift */; };
+		8E86F6132A3142F800297195 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86F6122A3142F800297195 /* Constants.swift */; };
+		8E86F6162A31447800297195 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86F6152A31447800297195 /* HomeViewModel.swift */; };
 		8E8ECDE82A2F9884005FD67C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8ECDE72A2F9884005FD67C /* AppDelegate.swift */; };
 		8E8ECDEA2A2F9884005FD67C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8ECDE92A2F9884005FD67C /* SceneDelegate.swift */; };
 		8E8ECDEC2A2F9884005FD67C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8ECDEB2A2F9884005FD67C /* HomeViewController.swift */; };
@@ -30,6 +32,8 @@
 		8E86F60A2A31391500297195 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8E86F60D2A31398500297195 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		8E86F60F2A313A1F00297195 /* HomeViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerExtension.swift; sourceTree = "<group>"; };
+		8E86F6122A3142F800297195 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E86F6152A31447800297195 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8E8ECDE42A2F9884005FD67C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8ECDE72A2F9884005FD67C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E8ECDE92A2F9884005FD67C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 		8E86F6082A3138EF00297195 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				8E86F6152A31447800297195 /* HomeViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -105,6 +110,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8E86F6142A3142FB00297195 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8E86F6122A3142F800297195 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		8E8ECDDB2A2F9883005FD67C = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				8E8ECDFB2A2F98A9005FD67C /* Delegates */,
+				8E86F6142A3142FB00297195 /* Constants */,
 				8E86F6072A3138D700297195 /* Custom Cells */,
 				8E86F60C2A31396500297195 /* Models */,
 				8E86F6092A3138FD00297195 /* API Callers */,
@@ -257,10 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8ECE042A2F9B40005FD67C /* WeatherTableViewCell.swift in Sources */,
+				8E86F6162A31447800297195 /* HomeViewModel.swift in Sources */,
 				8E8ECDEC2A2F9884005FD67C /* HomeViewController.swift in Sources */,
 				8E86F6102A313A1F00297195 /* HomeViewControllerExtension.swift in Sources */,
 				8E8ECE082A2F9B55005FD67C /* HourlyTableViewCell.swift in Sources */,
 				8E86F60B2A31391500297195 /* NetworkManager.swift in Sources */,
+				8E86F6132A3142F800297195 /* Constants.swift in Sources */,
 				8E86F6052A31312100297195 /* WeatherCollectionViewCell.swift in Sources */,
 				8E8ECDE82A2F9884005FD67C /* AppDelegate.swift in Sources */,
 				8E8ECDEA2A2F9884005FD67C /* SceneDelegate.swift in Sources */,
