@@ -26,9 +26,13 @@ class HomeViewModel {
                     self?.models = weatherResponse.daily
                     self?.currentWeather = weatherResponse.current
                     self?.hourlyModels = weatherResponse.hourly
-                    completion(.success(()))
+                    DispatchQueue.main.async {
+                        completion(.success(()))
+                    }
                 case .failure(let error):
-                    completion(.failure(error))
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
                 }
             }
         }
