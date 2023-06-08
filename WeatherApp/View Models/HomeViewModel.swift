@@ -12,8 +12,6 @@ class HomeViewModel {
     
     var weatherResponse: WeatherResponse?
     var cityName: String = ""
-    var maxTemp: Double?
-    var minTemp: Double?
     
     func fetchDataAndNotify(lat: Double,
                             long: Double,
@@ -65,7 +63,6 @@ class HomeViewModel {
                 switch result {
                 case .success(let weatherResponse):
                     self?.weatherResponse = weatherResponse
-                    self?.collectMaxMinTemperatures()
                     completion(.success(()))
                 case .failure(let error):
                     completion(.failure(error))
@@ -94,20 +91,6 @@ class HomeViewModel {
                     }
                 }
             }
-        }
-    }
-    
-    func collectMaxMinTemperatures() {
-        guard let weatherResponse = weatherResponse else { return }
-        
-        if let maxTemperature = weatherResponse.daily.max(by: { $0.temp.max < $1.temp.max }) {
-            let highestTemperature = String(maxTemperature.temp.max)
-            self.maxTemp = Double(highestTemperature)
-        }
-        
-        if let minTemperature = weatherResponse.daily.min(by: { $0.temp.max < $1.temp.max }) {
-            let lowestTemperature = String(minTemperature.temp.min)
-            self.minTemp = Double(lowestTemperature)
         }
     }
 }

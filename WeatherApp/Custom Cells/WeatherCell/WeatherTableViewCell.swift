@@ -32,8 +32,8 @@ class WeatherTableViewCell: UITableViewCell {
     func configure(with model: Daily) {
         self.lowTempLabel.textAlignment = .center
         self.highTempLabel.textAlignment = .center
-        self.lowTempLabel.text = "\(Int(model.temp.min))°"
-        self.highTempLabel.text = "\(Int(model.temp.max))°"
+        self.lowTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.min))°"
+        self.highTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.max))°"
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt)))
         self.iconImageView.contentMode = .scaleAspectFit
         let icon = model.weather[0].icon
