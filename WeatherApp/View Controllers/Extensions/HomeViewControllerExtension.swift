@@ -81,34 +81,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         weatherTableView.showsVerticalScrollIndicator = false
     }
-    
-//    func createTableHeader() -> UIView {
-//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-//
-//        headerView.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
-//
-//        let locationLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width-20, height: headerView.frame.size.height/5))
-//        let summaryLabel = UILabel(frame: CGRect(x: 10, y: 20+locationLabel.frame.size.height, width: view.frame.size.width-20, height: headerView.frame.size.height/5))
-//        let tempLabel = UILabel(frame: CGRect(x: 10, y: 20+locationLabel.frame.size.height+summaryLabel.frame.size.height, width: view.frame.size.width-20, height: headerView.frame.size.height/2))
-//
-//        headerView.addSubview(locationLabel)
-//        headerView.addSubview(tempLabel)
-//        headerView.addSubview(summaryLabel)
-//
-//        tempLabel.textAlignment = .center
-//        locationLabel.textAlignment = .center
-//        summaryLabel.textAlignment = .center
-//
-//        locationLabel.text = "Current Location"
-//
-//        guard let currentWeather = viewModel?.currentWeather else { return UIView() }
-//
-//        tempLabel.text = "\(currentWeather.temp)°"
-//        tempLabel.font = UIFont(name: "Helvetica-Bold", size: 32)
-//        summaryLabel.text = currentWeather.weather[0].description.rawValue
-//
-//        return headerView
-//    }
 }
 
 

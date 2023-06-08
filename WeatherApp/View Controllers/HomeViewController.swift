@@ -16,7 +16,15 @@ class HomeViewController: UIViewController {
     
     // MARK: - @IBOutlet
 
-    @IBOutlet var weatherTableView: UITableView!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var shortDescriptionLabel: UILabel!
+    @IBOutlet weak var highTempLabel: UILabel!
+    @IBOutlet weak var lowTempLabel: UILabel!
+    @IBOutlet weak var longDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var hourlyCollectionView: UICollectionView!
+    @IBOutlet weak var weatherTableView: UITableView!
 
     // MARK: - Lifecyle
     
