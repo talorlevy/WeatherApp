@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lowTempLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
     
-    @IBOutlet weak var hourlyCollectionView: UICollectionView!
     @IBOutlet weak var weatherTableView: UITableView!
 
     // MARK: - Lifecyle
@@ -31,12 +30,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        configureUI()
         configureTableView()
+        setupLocation()
+        requestWeatherForLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupLocation()
+//        setupLocation()
     }
 }
