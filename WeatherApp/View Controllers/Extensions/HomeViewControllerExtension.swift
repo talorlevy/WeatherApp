@@ -22,10 +22,10 @@ extension HomeViewController {
             self?.viewModel?.fetchDataAndNotify(lat: lat, long: long) { success in
                 if success {
                     self?.cityLabel.text = self?.viewModel?.cityName
-                    self?.tempLabel.text = String(self?.viewModel?.weatherResponse?.current.temp ?? 0.0)
+                    self?.tempLabel.text = String(Constants.kelvinToFahrenheit(kelvin: self?.viewModel?.weatherResponse?.current.temp ?? 0.0)) + "°"
                     self?.shortDescriptionLabel.text = self?.viewModel?.weatherResponse?.current.weather[0].description.rawValue
-                    self?.highTempLabel.text = String(self?.viewModel?.weatherResponse?.daily[0].temp.max ?? 0.0)
-                    self?.lowTempLabel.text = String(self?.viewModel?.weatherResponse?.daily[0].temp.min ?? 0.0)
+                    self?.highTempLabel.text = "H:" + String(Constants.kelvinToFahrenheit(kelvin: self?.viewModel?.weatherResponse?.daily[0].temp.max ?? 0.0)) + "°"
+                    self?.lowTempLabel.text = "L:" + String(Constants.kelvinToFahrenheit(kelvin: self?.viewModel?.weatherResponse?.daily[0].temp.min ?? 0.0)) + "°"
                     self?.longDescriptionLabel.text = "\(self?.viewModel?.weatherResponse?.daily[0].summary ?? "")."
                     self?.weatherTableView.reloadData()
                 }
@@ -64,8 +64,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func configureTableView() {
         weatherTableView.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
-//        weatherTableView.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
-//        weatherTableView.showsVerticalScrollIndicator = false
     }
 }
 

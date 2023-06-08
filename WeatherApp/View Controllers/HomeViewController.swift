@@ -31,12 +31,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         initViewModel()
         configureTableView()
-        setupLocation()
         requestWeatherForLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        setupLocation()
+        setupLocation()
     }
 }
