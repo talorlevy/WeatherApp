@@ -18,18 +18,6 @@ extension HomeViewController {
         view.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
     }
     
-    func configureTableView() {
-        weatherTableView.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: HourlyTableViewCell.identifier)
-        weatherTableView.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
-        weatherTableView.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
-    }
-    
-    func setupLocation() {
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
     func requestWeatherForLocation() {
         DispatchQueue.main.async { [weak self] in
             guard let currentLocation = self?.currentLocation else { return }
@@ -45,34 +33,6 @@ extension HomeViewController {
                 }
             }
         }
-    }
-    
-    func createTableHeader() -> UIView {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-
-        headerView.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
-        
-        let locationLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width-20, height: headerView.frame.size.height/5))
-        let summaryLabel = UILabel(frame: CGRect(x: 10, y: 20+locationLabel.frame.size.height, width: view.frame.size.width-20, height: headerView.frame.size.height/5))
-        let tempLabel = UILabel(frame: CGRect(x: 10, y: 20+locationLabel.frame.size.height+summaryLabel.frame.size.height, width: view.frame.size.width-20, height: headerView.frame.size.height/2))
-        
-        headerView.addSubview(locationLabel)
-        headerView.addSubview(tempLabel)
-        headerView.addSubview(summaryLabel)
-        
-        tempLabel.textAlignment = .center
-        locationLabel.textAlignment = .center
-        summaryLabel.textAlignment = .center
-
-        locationLabel.text = "Current Location"
-
-        guard let currentWeather = viewModel?.currentWeather else { return UIView() }
-
-        tempLabel.text = "\(currentWeather.temp)°"
-        tempLabel.font = UIFont(name: "Helvetica-Bold", size: 32)
-        summaryLabel.text = currentWeather.weather[0].description.rawValue
-        
-        return headerView
     }
 }
 
@@ -113,6 +73,42 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func configureTableView() {
+        weatherTableView.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: HourlyTableViewCell.identifier)
+        weatherTableView.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
+        weatherTableView.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
+        
+        weatherTableView.showsVerticalScrollIndicator = false
+    }
+    
+//    func createTableHeader() -> UIView {
+//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+//
+//        headerView.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
+//
+//        let locationLabel = UILabel(frame: CGRect(x: 10, y: 10, width: view.frame.size.width-20, height: headerView.frame.size.height/5))
+//        let summaryLabel = UILabel(frame: CGRect(x: 10, y: 20+locationLabel.frame.size.height, width: view.frame.size.width-20, height: headerView.frame.size.height/5))
+//        let tempLabel = UILabel(frame: CGRect(x: 10, y: 20+locationLabel.frame.size.height+summaryLabel.frame.size.height, width: view.frame.size.width-20, height: headerView.frame.size.height/2))
+//
+//        headerView.addSubview(locationLabel)
+//        headerView.addSubview(tempLabel)
+//        headerView.addSubview(summaryLabel)
+//
+//        tempLabel.textAlignment = .center
+//        locationLabel.textAlignment = .center
+//        summaryLabel.textAlignment = .center
+//
+//        locationLabel.text = "Current Location"
+//
+//        guard let currentWeather = viewModel?.currentWeather else { return UIView() }
+//
+//        tempLabel.text = "\(currentWeather.temp)°"
+//        tempLabel.font = UIFont(name: "Helvetica-Bold", size: 32)
+//        summaryLabel.text = currentWeather.weather[0].description.rawValue
+//
+//        return headerView
+//    }
 }
 
 
@@ -126,5 +122,11 @@ extension HomeViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             requestWeatherForLocation()
         }
+    }
+    
+    func setupLocation() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 }
