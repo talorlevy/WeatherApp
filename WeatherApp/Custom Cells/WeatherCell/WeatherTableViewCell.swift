@@ -30,16 +30,14 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     func configure(with model: Daily) {
-        self.lowTempLabel.textAlignment = .center
-        self.highTempLabel.textAlignment = .center
         self.lowTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.min))°"
         self.highTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.max))°"
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt)))
         self.iconImageView.contentMode = .scaleAspectFit
-        let icon = model.weather[0].icon
-        if icon.contains("clear") {
+        let main = model.weather[0].main.rawValue
+        if main == "Clear" {
             self.iconImageView.image = UIImage(named: "clear")
-        } else if icon.contains("rain") {
+        } else if main == "Rain" {
             self.iconImageView.image = UIImage(named: "rain")
         } else {
             self.iconImageView.image = UIImage(named: "cloud")
