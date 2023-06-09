@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HourlyCollectionViewCell" id="gTV-IL-0wX" customClass="HourlyCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="210"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="214" height="210"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOX-eb-xpS">
+                        <rect key="frame" x="94.666666666666671" y="122" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="3sx-4c-aj4"/>
+                            <constraint firstAttribute="width" constant="25" id="cas-JQ-w87"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqU-5d-lrD">
+                        <rect key="frame" x="91.333333333333329" y="152" width="31.333333333333329" height="14.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7g-LF-ugn">
+                        <rect key="frame" x="93" y="102.66666666666667" width="28" height="14.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gOX-eb-xpS" firstAttribute="top" secondItem="Y7g-LF-ugn" secondAttribute="bottom" constant="5" id="Lxm-aq-qSm"/>
+                <constraint firstItem="qqU-5d-lrD" firstAttribute="centerX" secondItem="gOX-eb-xpS" secondAttribute="centerX" id="Nos-im-07c"/>
+                <constraint firstItem="Y7g-LF-ugn" firstAttribute="centerX" secondItem="gOX-eb-xpS" secondAttribute="centerX" id="XWb-vY-IWv"/>
+                <constraint firstItem="gOX-eb-xpS" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="cdo-gv-8g8"/>
+                <constraint firstItem="qqU-5d-lrD" firstAttribute="top" secondItem="gOX-eb-xpS" secondAttribute="bottom" constant="5" id="dpn-7k-6rH"/>
+                <constraint firstItem="gOX-eb-xpS" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="ghC-XJ-xs1"/>
+            </constraints>
+            <size key="customSize" width="214" height="210"/>
+            <connections>
+                <outlet property="hourLabel" destination="Y7g-LF-ugn" id="TZj-Mb-d0E"/>
+                <outlet property="iconImageView" destination="gOX-eb-xpS" id="ZaW-Cl-F7Y"/>
+                <outlet property="tempLabel" destination="qqU-5d-lrD" id="Ghc-Ln-YOt"/>
+            </connections>
+            <point key="canvasLocation" x="601.52671755725191" y="216.90140845070422"/>
+        </collectionViewCell>
+    </objects>
+</document>

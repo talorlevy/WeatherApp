@@ -14,6 +14,11 @@ extension HomeViewController {
         viewModel = HomeViewModel()
     }
     
+    func configureUI() {
+        hourlyStackView.layer.cornerRadius = 10.0
+        hourlyStackView.layer.masksToBounds = true
+    }
+    
     func requestWeatherForLocation() {
         DispatchQueue.main.async { [weak self] in
             guard let currentLocation = self?.currentLocation else { return }
@@ -27,7 +32,8 @@ extension HomeViewController {
                     self?.highTempLabel.text = "H:" + String(Constants.kelvinToFahrenheit(kelvin: self?.viewModel?.weatherResponse?.daily[0].temp.max ?? 0.0)) + "°"
                     self?.lowTempLabel.text = "L:" + String(Constants.kelvinToFahrenheit(kelvin: self?.viewModel?.weatherResponse?.daily[0].temp.min ?? 0.0)) + "°"
                     self?.longDescriptionLabel.text = "\(self?.viewModel?.weatherResponse?.daily[0].summary ?? "")."
-                    self?.weatherTableView.reloadData()
+                    self?.hourlyCollectionView.reloadData()
+                    self?.dailyTableView.reloadData()
                 }
                 else {
                     print("Error fetching weather for location")
@@ -38,23 +44,47 @@ extension HomeViewController {
 }
 
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewFlowLayout
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel?.weatherResponse?.hourly.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let hourlyArray = viewModel?.weatherResponse?.hourly else { return UICollectionViewCell() }
+        let cell = hourlyCollectionView.dequeueReusableCell(withReuseIdentifier: HourlyCollectionViewCell.identifier, for: indexPath) as! HourlyCollectionViewCell
+        cell.configure(with: hourlyArray[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth: CGFloat = 55
+        let cellHeight: CGFloat = 80
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func configureHourlyCollectionView() {
+        hourlyCollectionView.register(HourlyCollectionViewCell.nib(), forCellWithReuseIdentifier: HourlyCollectionViewCell.identifier)
+
+    }
+}
+
+
+
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.weatherResponse?.daily.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let models = viewModel?.weatherResponse?.daily else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier, for: indexPath) as! WeatherTableViewCell
-        cell.configure(with: models[indexPath.row])
-        cell.backgroundColor = UIColor(red: 52/255.0, green: 109/255.0, blue: 179/255.0, alpha: 1.0)
+        guard let dailyArray = viewModel?.weatherResponse?.daily else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: DailyTableViewCell.identifier, for: indexPath) as! DailyTableViewCell
+        cell.configure(with: dailyArray[indexPath.row])
         return cell
     }
     
@@ -62,8 +92,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 100
     }
     
-    func configureTableView() {
-        weatherTableView.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
+    func configureDailyTableView() {
+        dailyTableView.register(DailyTableViewCell.nib(), forCellReuseIdentifier: DailyTableViewCell.identifier)
+        dailyTableView.layer.cornerRadius = 10.0
+        dailyTableView.layer.masksToBounds = true
     }
 }
 
