@@ -7,8 +7,14 @@
 
 import UIKit
 
-class WeatherTableViewCell: UITableViewCell {
+class DailyTableViewCell: UITableViewCell {
 
+    static let identifier = "DailyTableViewCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "DailyTableViewCell", bundle: nil)
+    }
+    
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var highTempLabel: UILabel!
     @IBOutlet var lowTempLabel: UILabel!
@@ -22,28 +28,19 @@ class WeatherTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    static let identifier = "WeatherTableViewCell"
-    
-    static func nib() -> UINib {
-        return UINib(nibName: "WeatherTableViewCell",
-                     bundle: nil)
-    }
-    
     func configure(with model: Daily) {
-        self.lowTempLabel.textAlignment = .center
-        self.highTempLabel.textAlignment = .center
-        self.lowTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.min))°"
-        self.highTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.max))°"
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt)))
         self.iconImageView.contentMode = .scaleAspectFit
-        let icon = model.weather[0].icon
-        if icon.contains("clear") {
+        let main = model.weather[0].main.rawValue
+        if main == "Clear" {
             self.iconImageView.image = UIImage(named: "clear")
-        } else if icon.contains("rain") {
+        } else if main == "Rain" {
             self.iconImageView.image = UIImage(named: "rain")
         } else {
             self.iconImageView.image = UIImage(named: "cloud")
         }
+        self.lowTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.min))°"
+        self.highTempLabel.text = "\(Constants.kelvinToFahrenheit(kelvin: model.temp.max))°"
     }
     
     func getDayForDate(_ date: Date?) -> String {

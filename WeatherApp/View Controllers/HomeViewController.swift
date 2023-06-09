@@ -23,14 +23,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lowTempLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
     
-    @IBOutlet weak var weatherTableView: UITableView!
+    @IBOutlet weak var hourlyStackView: UIStackView!
+    @IBOutlet weak var hourlyCollectionView: UICollectionView!
+    @IBOutlet weak var dailyTableView: UITableView!
 
     // MARK: - Lifecyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        configureTableView()
+        configureUI()
+        configureHourlyCollectionView()
+        configureDailyTableView()
         requestWeatherForLocation()
     }
     
