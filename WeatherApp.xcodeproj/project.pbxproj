@@ -23,6 +23,8 @@
 		8E8ECE042A2F9B40005FD67C /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8ECE022A2F9B40005FD67C /* DailyTableViewCell.swift */; };
 		8E8ECE052A2F9B40005FD67C /* DailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8ECE032A2F9B40005FD67C /* DailyTableViewCell.xib */; };
 		8EAD579D2A352A0E0073C385 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8EAD579C2A352A0E0073C385 /* Alamofire */; };
+		8EAD579F2A35834A0073C385 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD579E2A35834A0073C385 /* SearchViewController.swift */; };
+		8EAD57A12A3583D90073C385 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57A02A3583D90073C385 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		8E8ECDF52A2F9886005FD67C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E8ECE022A2F9B40005FD67C /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		8E8ECE032A2F9B40005FD67C /* DailyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTableViewCell.xib; sourceTree = "<group>"; };
+		8EAD579E2A35834A0073C385 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8EAD57A02A3583D90073C385 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				8E8ECDEB2A2F9884005FD67C /* HomeViewController.swift */,
+				8EAD579E2A35834A0073C385 /* SearchViewController.swift */,
+				8EAD57A02A3583D90073C385 /* AddViewController.swift */,
 				8E86F6112A313A2300297195 /* Extensions */,
 			);
 			path = "View Controllers";
@@ -264,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8ECE042A2F9B40005FD67C /* DailyTableViewCell.swift in Sources */,
+				8EAD579F2A35834A0073C385 /* SearchViewController.swift in Sources */,
+				8EAD57A12A3583D90073C385 /* AddViewController.swift in Sources */,
 				8E86F6162A31447800297195 /* HomeViewModel.swift in Sources */,
 				8E1302EC2A32AB4400252654 /* HourlyCollectionViewCell.swift in Sources */,
 				8E8ECDEC2A2F9884005FD67C /* HomeViewController.swift in Sources */,
