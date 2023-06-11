@@ -23,6 +23,14 @@
 		8E8ECE042A2F9B40005FD67C /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8ECE022A2F9B40005FD67C /* DailyTableViewCell.swift */; };
 		8E8ECE052A2F9B40005FD67C /* DailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8ECE032A2F9B40005FD67C /* DailyTableViewCell.xib */; };
 		8EAD579D2A352A0E0073C385 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8EAD579C2A352A0E0073C385 /* Alamofire */; };
+		8EAD579F2A35834A0073C385 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD579E2A35834A0073C385 /* SearchViewController.swift */; };
+		8EAD57A12A3583D90073C385 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57A02A3583D90073C385 /* AddViewController.swift */; };
+		8EAD57A42A358A120073C385 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57A22A358A120073C385 /* LocationTableViewCell.swift */; };
+		8EAD57A52A358A120073C385 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EAD57A32A358A120073C385 /* LocationTableViewCell.xib */; };
+		8EAD57AC2A3590FD0073C385 /* SearchViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57AB2A3590FC0073C385 /* SearchViewControllerExtension.swift */; };
+		8EAD57AE2A35911C0073C385 /* AddViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57AD2A35911C0073C385 /* AddViewControllerExtension.swift */; };
+		8EAD57B22A3615820073C385 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57B12A3615820073C385 /* SearchViewModel.swift */; };
+		8EAD57B52A36175D0073C385 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD57B32A36175D0073C385 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +51,14 @@
 		8E8ECDF52A2F9886005FD67C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E8ECE022A2F9B40005FD67C /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		8E8ECE032A2F9B40005FD67C /* DailyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTableViewCell.xib; sourceTree = "<group>"; };
+		8EAD579E2A35834A0073C385 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8EAD57A02A3583D90073C385 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		8EAD57A22A358A120073C385 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		8EAD57A32A358A120073C385 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		8EAD57AB2A3590FC0073C385 /* SearchViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerExtension.swift; sourceTree = "<group>"; };
+		8EAD57AD2A35911C0073C385 /* AddViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewControllerExtension.swift; sourceTree = "<group>"; };
+		8EAD57B12A3615820073C385 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		8EAD57B42A36175D0073C385 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,7 @@
 			children = (
 				8E1302EE2A32AB4900252654 /* HourlyCell */,
 				8E8ECDFE2A2F9AEF005FD67C /* DailyCell */,
+				8EAD57A62A358A170073C385 /* LocationCell */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -79,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8E86F6152A31447800297195 /* HomeViewModel.swift */,
+				8EAD57B12A3615820073C385 /* SearchViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -103,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				8E86F60F2A313A1F00297195 /* HomeViewControllerExtension.swift */,
+				8EAD57AB2A3590FC0073C385 /* SearchViewControllerExtension.swift */,
+				8EAD57AD2A35911C0073C385 /* AddViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -144,6 +164,7 @@
 				8E8ECDFD2A2F98BB005FD67C /* Storyboards */,
 				8E8ECDF02A2F9886005FD67C /* Assets.xcassets */,
 				8E8ECDF52A2F9886005FD67C /* Info.plist */,
+				8EAD57B62A3617600073C385 /* New Group */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -161,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				8E8ECDEB2A2F9884005FD67C /* HomeViewController.swift */,
+				8EAD579E2A35834A0073C385 /* SearchViewController.swift */,
+				8EAD57A02A3583D90073C385 /* AddViewController.swift */,
 				8E86F6112A313A2300297195 /* Extensions */,
 			);
 			path = "View Controllers";
@@ -182,6 +205,23 @@
 				8E8ECE032A2F9B40005FD67C /* DailyTableViewCell.xib */,
 			);
 			path = DailyCell;
+			sourceTree = "<group>";
+		};
+		8EAD57A62A358A170073C385 /* LocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD57A22A358A120073C385 /* LocationTableViewCell.swift */,
+				8EAD57A32A358A120073C385 /* LocationTableViewCell.xib */,
+			);
+			path = LocationCell;
+			sourceTree = "<group>";
+		};
+		8EAD57B62A3617600073C385 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD57B32A36175D0073C385 /* CoreData.xcdatamodeld */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +290,7 @@
 			files = (
 				8E8ECE052A2F9B40005FD67C /* DailyTableViewCell.xib in Resources */,
 				8E8ECDF42A2F9886005FD67C /* LaunchScreen.storyboard in Resources */,
+				8EAD57A52A358A120073C385 /* LocationTableViewCell.xib in Resources */,
 				8E8ECDF12A2F9886005FD67C /* Assets.xcassets in Resources */,
 				8E8ECDEF2A2F9884005FD67C /* Main.storyboard in Resources */,
 				8E1302ED2A32AB4400252654 /* HourlyCollectionViewCell.xib in Resources */,
@@ -264,8 +305,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8ECE042A2F9B40005FD67C /* DailyTableViewCell.swift in Sources */,
+				8EAD579F2A35834A0073C385 /* SearchViewController.swift in Sources */,
+				8EAD57B22A3615820073C385 /* SearchViewModel.swift in Sources */,
+				8EAD57AE2A35911C0073C385 /* AddViewControllerExtension.swift in Sources */,
+				8EAD57A12A3583D90073C385 /* AddViewController.swift in Sources */,
+				8EAD57B52A36175D0073C385 /* CoreData.xcdatamodeld in Sources */,
+				8EAD57AC2A3590FD0073C385 /* SearchViewControllerExtension.swift in Sources */,
 				8E86F6162A31447800297195 /* HomeViewModel.swift in Sources */,
 				8E1302EC2A32AB4400252654 /* HourlyCollectionViewCell.swift in Sources */,
+				8EAD57A42A358A120073C385 /* LocationTableViewCell.swift in Sources */,
 				8E8ECDEC2A2F9884005FD67C /* HomeViewController.swift in Sources */,
 				8E86F6102A313A1F00297195 /* HomeViewControllerExtension.swift in Sources */,
 				8E86F60B2A31391500297195 /* NetworkManager.swift in Sources */,
@@ -507,6 +555,19 @@
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8EAD57B32A36175D0073C385 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8EAD57B42A36175D0073C385 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 8EAD57B42A36175D0073C385 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E8ECDDC2A2F9883005FD67C /* Project object */;
 }
