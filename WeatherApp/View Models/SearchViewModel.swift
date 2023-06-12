@@ -11,6 +11,10 @@ class SearchViewModel {
 
     var locationList: [Location] = []
     
+    init() {
+        locationList = CoreDataManager.shared.fetchLocationsFromCoreData()
+    }
+    
     func addLocation(name: String) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let location = Location(context: context)
